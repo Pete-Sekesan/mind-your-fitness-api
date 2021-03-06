@@ -8,9 +8,12 @@
     "test": "mocha --require test/setup.js",
     "dev": "nodemon src/server.js",
     "predeploy": "npm audit",
-    "deploy": "git push heroku main"
+    "deploy": "git push heroku master"
   },
   "keywords": [],
+  "engines": {
+    "node": "14.15.1"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
