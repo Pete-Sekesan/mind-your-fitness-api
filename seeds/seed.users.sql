@@ -1,5 +1,5 @@
 INSERT INTO users
-(username, password)
-VALUES
-(testuser1, 12345)
-(testuser2, 67890)
+    (username, password)
+    VALUES
+    ('testuser1', 'password'),
+    ('testuser2', 'password1');
