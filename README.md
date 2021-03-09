@@ -2,6 +2,10 @@
 
 This is a boilerplate project used for starting new projects!
 
+## Seed Command
+
+psql -U petersekesan -d mind-your-fitness -f ./seeds/seed.users.sql
+
 ## Set up
 
 Complete the following steps to start a new project (NEW-PROJECT-NAME):
