@@ -1,1 +1,1 @@
-DROP TABLE IF EXISTS days;
+DROP TABLE IF EXISTS workouts;
