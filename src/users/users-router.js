@@ -39,13 +39,13 @@ usersRouter
 
     if (!REGEX_UPPER_LOWER_NUMBER_SPECIAL.test(password)) {
       return res.status(400).json({
-        error: `Password must contain one upper case character, one lower case character, one number, and one special character`,
+        error: `Password must contain an upper case character, a lower case character, a number, and a special character`,
       });
     }
     UsersService.hasUserWithUsername(knexInstance, username).then((hasUser) => {
       if (hasUser) {
         return res.status(400).json({
-          error: `Username already exists`,
+          error: `This username already exists. Please login or try a different name. `,
         });
       }
 
