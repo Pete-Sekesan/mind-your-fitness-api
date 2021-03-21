@@ -1,6 +1,6 @@
 "use strict";
 
-var AuthService = require("../auth/auth-service");
+var AuthService = require("../authentication/auth-service");
 
 function requireAuth(req, res, next) {
   var authToken = req.get("Authorization") || "";
@@ -16,7 +16,7 @@ function requireAuth(req, res, next) {
 
   try {
     var payload = AuthService.verifyJwt(bearerToken);
-    AuthService.getUserWithUsername(req.app.get("db"), payload.sub).then(function (user) {
+    AuthService.getUserByUsername(req.app.get("db"), payload.sub).then(function (user) {
       if (!user) {
         return res.status(401).json({
           error: "Unauthorized request"
