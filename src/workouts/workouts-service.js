@@ -1,7 +1,8 @@
 const WorkoutsService = {
-  getWorkoutsByUserId(knex, user_id) {
+  getWorkoutsByUserId(knex, users_id) {
     return knex.from("workouts").select("*").where("users_id", users_id);
   },
+  //insert a new logged workout into the workouts table.
   insertWorkout(knex, newWorkout) {
     return knex
       .insert(newWorkout)
