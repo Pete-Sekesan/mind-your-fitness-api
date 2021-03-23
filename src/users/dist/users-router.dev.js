@@ -13,7 +13,7 @@ var _require = require("../middleware/jwt-auth"),
 
 var serializeUser = function serializeUser(user) {
   return {
-    id: user.id,
+    id: users.id,
     username: xss(user.username)
   };
 };

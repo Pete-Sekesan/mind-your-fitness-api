@@ -31,7 +31,7 @@ var serializeWorkout = function serializeWorkout(workout) {
 
 workoutsRouter.route("/").get(requireAuth, function (req, res, next) {
   var knexInstance = req.app.get("db");
-  var users_id = req.user.id;
+  var users_id = req.users.id;
   WorkoutsService.getWorkoutsByUserId(knexInstance, users_id).then(function (workouts) {
     res.json(workouts.map(serializeWorkout));
   })["catch"](next);

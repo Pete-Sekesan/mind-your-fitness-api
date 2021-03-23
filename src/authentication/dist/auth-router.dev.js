@@ -46,7 +46,7 @@ authRouter.route("/login").all(function (req, res, next) {
 
       var subject = dbUser.username;
       var payload = {
-        user_id: dbUser.id
+        users_id: dbUser.id
       };
       res.send({
         authToken: AuthService.createJwt(subject, payload)

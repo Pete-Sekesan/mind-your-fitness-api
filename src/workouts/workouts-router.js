@@ -16,7 +16,7 @@ workoutsRouter
   .get(requireAuth, (req, res, next) => {
     const knexInstance = req.app.get("db");
 
-    const users_id = req.user.id;
+    const users_id = req.users.id;
     WorkoutsService.getWorkoutsByUserId(knexInstance, users_id)
       .then((workouts) => {
         res.json(workouts.map(serializeWorkout));
