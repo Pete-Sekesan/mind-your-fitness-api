@@ -10,9 +10,11 @@ var config = require("../config");
 
 var AuthService = {
   getUserByUsername: function getUserByUsername(knex, username) {
-    return knex("users").where({
-      username: username
-    }).first();
+    return knex("users")
+      .where({
+        username: username,
+      })
+      .first();
   },
   comparePasswords: function comparePasswords(password, hash) {
     return bcrypt.compare(password, hash);
@@ -20,13 +22,13 @@ var AuthService = {
   createJwt: function createJwt(subject, payload) {
     return jwt.sign(payload, config.JWT_SECRET, {
       subject: subject,
-      algorithm: "HS256"
+      algorithm: "HS256",
     });
   },
   verifyJwt: function verifyJwt(token) {
     return jwt.verify(token, config.JWT_SECRET, {
-      algorithm: "HS256"
+      algorithm: "HS256",
     });
-  }
+  },
 };
 module.exports = AuthService;
