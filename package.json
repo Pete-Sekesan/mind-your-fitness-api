@@ -1,7 +1,7 @@
 {
   "name": "mind-your-fitness-api",
   "version": "1.0.0",
-  "description": "This is a boilerplate project used for starting new projects!",
+  "description": "API Endpoint for Mind Your Fitness",
   "main": "index.js",
   "scripts": {
     "start": "node src/server.js",
