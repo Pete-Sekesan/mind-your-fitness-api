@@ -25,6 +25,9 @@ authRouter
           error: "Incorrect username or password",
         });
       }
+
+      console.log("This is DB User", dbUser);
+
       AuthService.comparePasswords(password, dbUser.password).then(
         (isMatch) => {
           if (!isMatch) {
@@ -32,8 +35,10 @@ authRouter
               error: "Incorrect username or password",
             });
           }
-          const subject = dbUser.username;
+          //added object to subject, not sure if needed atm
+          const subject = { username: dbUser.username };
           const payload = { users_id: dbUser.id };
+          console.log("This is subject and payload", subject, payload);
           res.send({
             authToken: AuthService.createJwt(subject, payload),
           });
