@@ -18,6 +18,7 @@ var AuthService = {
     return bcrypt.compare(password, hash);
   },
   createJwt: function createJwt(subject, payload) {
+    console.log("This is where the create jwt runs ", subject, payload);
     return jwt.sign(payload, {
       subject: subject,
       algorithm: "HS256"

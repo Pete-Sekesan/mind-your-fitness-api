@@ -37,17 +37,22 @@ authRouter.route("/login").all(function (req, res, next) {
       });
     }
 
+    console.log("This is DB User", dbUser);
     AuthService.comparePasswords(password, dbUser.password).then(function (isMatch) {
       if (!isMatch) {
         return res.status(400).json({
           error: "Incorrect username or password"
         });
-      }
+      } //added object to subject, not sure if needed atm
 
-      var subject = dbUser.username;
+
+      var subject = {
+        username: dbUser.username
+      };
       var payload = {
         users_id: dbUser.id
       };
+      console.log("This is subject and payload", subject, payload);
       res.send({
         authToken: AuthService.createJwt(subject, payload)
       });
