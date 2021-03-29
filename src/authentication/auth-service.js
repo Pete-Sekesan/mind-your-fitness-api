@@ -10,17 +10,12 @@ const AuthService = {
   comparePasswords(password, hash) {
     return bcrypt.compare(password, hash);
   },
-  createJwt(subject, payload) {
-    console.log("This is where the create jwt runs ", subject, payload);
-    return jwt.sign(payload, {
-      subject,
-      algorithm: "HS256",
-    });
+  createJwt(payload) {
+    console.log("This is where the create jwt runs ", payload);
+    return jwt.sign(payload, process.env.JWT_SECRET);
   },
   verifyJwt(token) {
-    return jwt.verify(token, {
-      algorithm: "HS256",
-    });
+    return jwt.verify(token, process.env.JWT_SECRET);
   },
 };
 

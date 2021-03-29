@@ -36,11 +36,11 @@ authRouter
             });
           }
           //added object to subject, not sure if needed atm
-          const subject = { username: dbUser.username };
+          const subject = dbUser.username;
           const payload = { users_id: dbUser.id };
           console.log("This is subject and payload", subject, payload);
           res.send({
-            authToken: AuthService.createJwt(subject, payload),
+            authToken: AuthService.createJwt(payload),
           });
         }
       );

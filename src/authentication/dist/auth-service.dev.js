@@ -17,17 +17,12 @@ var AuthService = {
   comparePasswords: function comparePasswords(password, hash) {
     return bcrypt.compare(password, hash);
   },
-  createJwt: function createJwt(subject, payload) {
-    console.log("This is where the create jwt runs ", subject, payload);
-    return jwt.sign(payload, {
-      subject: subject,
-      algorithm: "HS256"
-    });
+  createJwt: function createJwt(payload) {
+    console.log("This is where the create jwt runs ", payload);
+    return jwt.sign(payload, process.env.JWT_SECRET);
   },
   verifyJwt: function verifyJwt(token) {
-    return jwt.verify(token, {
-      algorithm: "HS256"
-    });
+    return jwt.verify(token, process.env.JWT_SECRET);
   }
 };
 module.exports = AuthService;
