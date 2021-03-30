@@ -16,23 +16,23 @@ workoutsRouter
   .get(requireAuth, (req, res, next) => {
     const knexInstance = req.app.get("db");
 
-    const users_id = req.users.id;
-    WorkoutsService.getWorkoutsByUserId(knexInstance, users_id)
+    const user_id = req.user.id;
+    WorkoutsService.getWorkoutsByUserId(knexInstance, user_id)
       .then((workouts) => {
         res.json(workouts.map(serializeWorkout));
       })
       .catch(next);
   })
   .post(requireAuth, (req, res, next) => {
-    const { workout_name, duration } = req.body;
-    const newWorkout = { workout_name, duration };
+    const { workout_name, date_created, duration } = req.body;
+    const newWorkout = { workout_name, date_created, duration };
 
     for (const [key, value] of Object.entries(newWorkout))
       if (value == null)
         return res.status(400).json({
           error: { message: `'${key}' is required` },
         });
-    newWorkout.users_id = req.user.id;
+    newWorkout.user_id = req.user.id;
     WorkoutsService.insertWorkout(req.app.get("db"), newWorkout)
       .then((workout) => {
         res.status(201).json(serializeWorkout(workout));

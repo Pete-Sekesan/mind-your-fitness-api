@@ -3,11 +3,11 @@ TRUNCATE workouts, users  RESTART IDENTITY CASCADE;
 INSERT INTO users
     (username, password)
     VALUES
-    ('testuser1', 'password'),
-    ('testuser2', 'password1');
+    ('testuser', 'Password1234!'),
+    ('testuser2', 'Password1234!');
 
     INSERT INTO workouts
-    (id, users_id, workout_name, date_created, duration)
+    (id, user_id, workout_name, date_created, duration)
     VALUES
     (1,1, 'Running','2021-03-15 10:00:00', 30),
     (2,1, 'Walking','2021-03-15 08:00:00',60),

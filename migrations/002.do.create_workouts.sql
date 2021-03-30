@@ -17,7 +17,7 @@ CREATE TYPE workout AS ENUM (
 
 CREATE TABLE workouts (
   id SERIAL PRIMARY KEY,
-  users_id INTEGER REFERENCES users(id) ON DELETE CASCADE NOT NULL,
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE NOT NULL,
   workout_name workout,
   date_created TIMESTAMPTZ DEFAULT now() NOT NULL,
   duration numeric
