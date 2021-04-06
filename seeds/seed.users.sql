@@ -15,4 +15,5 @@ INSERT INTO users
     (4,1, 'Running','2021-03-15 08:00:00',45),
     (5,1, 'Weightlifting','2021-03-15 11:00:00',70),
     (6,1, 'Yoga','2021-03-15 06:00:00',30);
+    
 ALTER SEQUENCE "workouts_id_seq" RESTART WITH 7;

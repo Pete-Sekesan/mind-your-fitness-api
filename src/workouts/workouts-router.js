@@ -1,5 +1,4 @@
 const express = require("express");
-const path = require("path");
 const xss = require("xss");
 const WorkoutsService = require("./workouts-service");
 const { requireAuth } = require("../middleware/jwt-auth");
@@ -25,6 +24,7 @@ workoutsRouter
   })
   .post(requireAuth, (req, res, next) => {
     const { workout_name, date_created, duration } = req.body;
+    console.log("this is the workout name " + workout_name.value);
     const newWorkout = { workout_name, date_created, duration };
 
     for (const [key, value] of Object.entries(newWorkout))

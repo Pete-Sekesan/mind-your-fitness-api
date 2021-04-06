@@ -10,8 +10,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var express = require("express");
 
-var path = require("path");
-
 var xss = require("xss");
 
 var WorkoutsService = require("./workouts-service");
@@ -40,6 +38,7 @@ workoutsRouter.route("/").get(requireAuth, function (req, res, next) {
       workout_name = _req$body.workout_name,
       date_created = _req$body.date_created,
       duration = _req$body.duration;
+  console.log("this is the workout name " + workout_name.value);
   var newWorkout = {
     workout_name: workout_name,
     date_created: date_created,
