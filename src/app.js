@@ -13,7 +13,7 @@ const app = express();
 const morganOption = NODE_ENV === "production" ? "tiny" : "common";
 app.use(express.json());
 app.use(morgan(morganOption));
-app.use(cors({ origin: "https://mind-your-fitness.vercel.app/" }));
+app.use(cors());
 app.use(helmet());
 
 app.use("/api/auth", authRouter);
