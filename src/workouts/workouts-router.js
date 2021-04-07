@@ -32,6 +32,7 @@ workoutsRouter
         return res.status(400).json({
           error: { message: `'${key}' is required` },
         });
+
     newWorkout.user_id = req.user.id;
     WorkoutsService.insertWorkout(req.app.get("db"), newWorkout)
       .then((workout) => {

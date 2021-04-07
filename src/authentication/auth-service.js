@@ -1,11 +1,14 @@
-const knex = require("knex");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const config = require("../config");
 
 const AuthService = {
-  getUserWithUsername(knex, username) {
-    return knex("users").where({ username }).first();
+  async getUserWithId(knex, user_id) {
+    return await knex("users").where({ id: user_id }).first();
+  },
+
+  async getUserWithUsername(knex, username) {
+    return await knex("users").where({ username }).first();
   },
   comparePasswords(password, hash) {
     return bcrypt.compare(password, hash);

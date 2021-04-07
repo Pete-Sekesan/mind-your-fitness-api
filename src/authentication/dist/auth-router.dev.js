@@ -48,7 +48,7 @@ authRouter.route("/login").all(function (req, res, next) {
 
       var subject = dbUser.username;
       var payload = {
-        users_id: dbUser.id
+        user_id: dbUser.id
       };
       console.log("This is subject and payload", subject, payload);
       res.send({

@@ -16,7 +16,8 @@ function requireAuth(req, res, next) {
 
   try {
     var payload = AuthService.verifyJwt(bearerToken);
-    AuthService.getUserWithUsername(req.app.get("db"), payload.sub).then(function (user) {
+    console.log(payload);
+    AuthService.getUserWithId(req.app.get("db"), payload.user_id).then(function (user) {
       if (!user) {
         return res.status(401).json({
           error: "Unauthorized request"
