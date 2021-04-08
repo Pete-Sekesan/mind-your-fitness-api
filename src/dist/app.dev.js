@@ -25,7 +25,7 @@ var morganOption = NODE_ENV === "production" ? "tiny" : "common";
 app.use(express.json());
 app.use(morgan(morganOption));
 app.use(cors({
-  origin: CLIENT_ORIGIN
+  origin: "*"
 }));
 app.use(helmet());
 app.use("/api/auth", authRouter);
