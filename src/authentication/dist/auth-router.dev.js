@@ -8,6 +8,14 @@ var authRouter = express.Router();
 
 var AuthService = require("./auth-service");
 
+var cors = require("cors");
+
+var corsOptions = {
+  origin: "https://mind-your-fitness.vercel.app/",
+  optionsSuccessStatus: 200 // For legacy browser support
+
+};
+authRouter.use(cors(corsOptions));
 authRouter.route("/login").all(function (req, res, next) {
   knexInstance = req.app.get("db");
   next();

@@ -2,6 +2,14 @@ const express = require("express");
 const xss = require("xss");
 const authRouter = express.Router();
 const AuthService = require("./auth-service");
+const cors = require("cors");
+
+const corsOptions = {
+  origin: "https://mind-your-fitness.vercel.app/",
+  optionsSuccessStatus: 200, // For legacy browser support
+};
+
+authRouter.use(cors(corsOptions));
 
 authRouter
   .route("/login")
