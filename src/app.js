@@ -16,15 +16,15 @@ app.use(morgan(morganOption));
 app.use(cors());
 app.use(helmet());
 app.use(function (req, res, next) {
+  // update to match the domain you will make the request from
   res.header(
     "Access-Control-Allow-Origin",
-    "https://mind-your-fitness.vercel.app/"
+    "https://mind-your-fitness.vercel.app.TLD"
   );
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
   );
-  res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
   next();
 });
 
