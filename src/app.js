@@ -19,7 +19,7 @@ app.use(function (req, res, next) {
   // update to match the domain you will make the request from
   res.header(
     "Access-Control-Allow-Origin",
-    "https://mind-your-fitness.vercel.app.TLD"
+    "https://mind-your-fitness.vercel.app/.TLD"
   );
   res.header(
     "Access-Control-Allow-Headers",
