@@ -15,7 +15,8 @@ app.use(express.json());
 app.use(morgan(morganOption));
 app.use(
   cors({
-    origin: "*",
+    credentials: true,
+    origin: "http://mind-your-fitness.vercel.app",
   })
 );
 app.use(helmet());
