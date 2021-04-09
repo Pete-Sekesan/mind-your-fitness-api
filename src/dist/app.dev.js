@@ -25,11 +25,7 @@ var morganOption = NODE_ENV === "production" ? "tiny" : "common";
 app.use(express.json());
 app.use(morgan(morganOption));
 app.use(cors({
-  origin: "https://mind-your-fitness.vercel.app/",
-  // Or use your origin 'https://desolate-reaches-15214.herokuapp.com' explicitly here, whichever works xD
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  credentials: true // For sending cookies from server to client
-
+  origin: CLIENT_ORIGIN
 }));
 app.use(helmet());
 app.use("/api/auth", authRouter);
