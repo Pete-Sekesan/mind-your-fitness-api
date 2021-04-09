@@ -25,7 +25,7 @@ var morganOption = NODE_ENV === "production" ? "tiny" : "common";
 app.use(express.json());
 app.use(morgan(morganOption));
 app.use(cors({
-  origin: true,
+  origin: "https://desolate-reaches-15214.herokuapp.com",
   // Or use your origin 'https://desolate-reaches-15214.herokuapp.com' explicitly here, whichever works xD
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true // For sending cookies from server to client

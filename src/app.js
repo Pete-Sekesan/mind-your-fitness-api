@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(morgan(morganOption));
 app.use(
   cors({
-    origin: true, // Or use your origin 'https://desolate-reaches-15214.herokuapp.com' explicitly here, whichever works xD
+    origin: "https://desolate-reaches-15214.herokuapp.com", // Or use your origin 'https://desolate-reaches-15214.herokuapp.com' explicitly here, whichever works xD
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true, // For sending cookies from server to client
   })
