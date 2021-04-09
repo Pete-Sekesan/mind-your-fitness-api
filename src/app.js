@@ -15,12 +15,9 @@ app.use(express.json());
 app.use(morgan(morganOption));
 app.use(
   cors({
-    origin: true,
-    methods: "GET,PUT,POST,DELETE,HEAD,PATCH",
-    allowedHeaders:
-      "Origin, X-Requested-With, Content-Type, Accept, Authorization",
-    credentials: true,
-    preflightContinue: false,
+    origin: true, // Or use your origin 'https://desolate-reaches-15214.herokuapp.com' explicitly here, whichever works xD
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true, // For sending cookies from server to client
   })
 );
 app.use(helmet());
