@@ -17,3 +17,5 @@ INSERT INTO users
     (6,1, 'Yoga','2021-03-15 06:00:00',30);
     
 ALTER SEQUENCE "workouts_id_seq" RESTART WITH 7;
+
+/* Seed Command : psql -U petersekesan -d mind-your-fitness -f ./seeds/seed.users.sql */

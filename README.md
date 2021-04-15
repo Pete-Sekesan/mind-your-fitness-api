@@ -1,34 +1,52 @@
-# Express Boilerplate!
+# Mind Your Fitness - API
 
-This is a boilerplate project used for starting new projects!
+A simple exercise logging application.
 
-## Seed Command
+Live version: (https://mind-your-fitness.vercel.app/)
 
-psql -U petersekesan -d mind-your-fitness -f ./seeds/seed.users.sql
+## Introduction
 
-## Set up
+This app was created to allow users to have a small, standalone application to log and keep track of their exercise's and to view them all in one central location.
 
-Complete the following steps to start a new project (NEW-PROJECT-NAME):
+Setting up an account is easy. Just create a user name and password and you will be able to select from a list of predefined workouts. If you want to take a look around as well, you can log in with our Demo Account to give it a shot.
 
-1. Clone this repository to your local machine `git clone BOILERPLATE-URL NEW-PROJECTS-NAME`
-2. `cd` into the cloned repository
-3. Make a fresh start of the git history for this project with `rm -rf .git && git init`
-4. Install the node dependencies `npm install`
-5. Move the example Environment file to `.env` that will be ignored by git and read by the express server `mv example.env .env`
-6. Edit the contents of the `package.json` to use NEW-PROJECT-NAME instead of `"name": "express-boilerplate",`
+## Technologies
 
-## Scripts
+- Node and Express
+  - Authentication via JWT
+  - RESTful API
+- Testing
+  - Supertest (integration)
+  - Mocha and Chai (unit)
+- Database
+  - Postgres
+  - Knex.js
 
-Start the application `npm start`
+## Production
 
-Start nodemon for the application `npm run dev`
+Deployed via Heroku
 
-Run the tests `npm test`
+## API Endpoints
 
-## Deploying
+### Users Router
 
-When your new project is ready for deployment, add a new Heroku application with `heroku create`. This will make a new git remote called "heroku" and you can then `npm run deploy` which will push to this remote's main branch.
+```
+- /api/users
+- - GET - gets user that matches
+- - POST - creates a new user
+```
 
-## Readme
+### Workouts Router
 
-Once you deploy this project, please feel free to update this README file
+```
+- /api/workouts
+- - GET - gets all workouts by user id
+- - POST - creates a new workout
+```
+
+### Auth Router
+
+```
+- /api/auth/login
+- - POST - creates auth token to be stored in local storage
+```
